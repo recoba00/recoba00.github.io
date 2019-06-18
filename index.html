@@ -3,45 +3,38 @@
 <head>
 <meta charset="utf-8">
 <title>popkon event animation</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
+<script type="text/javascript">
+$(function(){
+  $('.coin').animate(
+	  {top:'460',top:'410'},500,"swing");
+	}
+ );
+</script>
 </head>
 <style>
-body {
-  background-image: url(bg.png);
-  background-repeat: no-repeat;
-}
-
 .coin {
   position:relative;
-  top:400px;
+  top:460px;
   left:322px;
   width: 398px;
   height: 398px;
   margin: 0;
   background: url('img/coin_new.png') left center;
   background-size: auto 398px;
-  animation: play 1.5s steps(18);
+  animation: play 0.5s steps(18) ;
   animation-delay: 1s;
-  animation-iteration-count: 1;	
-  animation-direction: alternate;
-}	
-
-@keyframes play {
-	from {
-		top: 460px; opacity: 0 ; 
-	}
-	10% {
-		top: 410px; opacity: 0.1 ; 
-	}
-	to {
-		top: 400px; opacity: 1 ; 
-	}
-	
-	75% { 
-		background-position: -7164px; 
-	}
-	
+  animation-iteration-count: 3;	
 }
-
+	
+@keyframes play {	
+100% { background-position: -7164px; }	
+}
+		
+body {
+  background-image: url(img/bg.png);
+  background-repeat: no-repeat;
+}
 </style>
 
 <body>
