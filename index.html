@@ -4,7 +4,14 @@
 <meta charset="utf-8">
 <title>로컬</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
-</head>
+<script type="text/javascript">
+$(function(){
+ $('.coin').animate(
+	  {top:'450',top:'390'},500,"swing");
+	}
+  );
+</script>
+	
 <style>
 .coin {
   position:relative;
@@ -28,17 +35,13 @@ body {
   background-image: url(img/bg.png);
   background-repeat: no-repeat;
 }
-</style>
+</style>	
+</head>
+
 
 <body>
 
 <div class="coin"></div>
-<script type="text/javascript">
-$(function(){
- $('.coin').animate(
-	  {top:'450',top:'390'},500,"swing");
-	}
-  );
-</script>
+
 </body>
 </html>
