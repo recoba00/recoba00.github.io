@@ -6,7 +6,11 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
 <script type="text/javascript">
 $(function(){
- $('.coin').animate({top:'450',top:'390'},1500,"swing");});
+  $('.coin').animate({
+    top:450,
+  	top:390
+  },1000);
+});
 </script>
 	
 <style>
@@ -20,7 +24,7 @@ $(function(){
   background: url('img/coin_new.png') left center;
   background-size: auto 398px;
   animation: play 1s steps(18) ;
-  animation-delay: 1s;
+  animation-delay: 1.5s;
   animation-iteration-count: 3;	
 }
 	
