@@ -1,1 +1,67 @@
-121313
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>popkon event animation</title>
+</head>
+<style>
+body {
+  background-image: url(bg.png);
+  background-repeat: no-repeat;
+}
+
+/*
+.monster {
+  position:relative;
+  top:400px;
+  left:320px;
+  width: 398px;
+  height: 398px;
+  margin: 0;
+  background: url('coin_new.png') left center;
+  background-size: auto 398px;
+  animation: play 1s steps(18);
+  animation-iteration-count: 2;
+  animation-delay: 1s;
+}
+	*/
+
+.coin {
+  position:relative;
+  top:400px;
+  left:320px;
+  width: 398px;
+  height: 398px;
+  margin: 0;
+  background: url('coin_new.png') left center;
+  background-size: auto 398px;
+  animation-name: play ; 
+  animation: play 1s steps(18);
+  animation-delay: 1s;
+  animation-iteration-count: 1;	
+}	
+
+@keyframes play {
+	from {
+		top: 460px; opacity: 0;
+	}
+	10% {
+		top: 410px; opacity: 0.1;
+	}
+	to {
+		top: 400px; opacity: 1;
+	}
+	100% { 
+		background-position: -7164px; 
+	}
+}
+	
+
+	
+
+</style>
+
+<body>
+<div class="coin"></div>
+</body>
+</html>
