@@ -11,6 +11,12 @@ $(".card").ready(function(){
 	$('.card').animate({top:"100",top:"150",opacity:"0",opacity:"1"},1000,fast);
 });
 </script>
+	
+<script type="text/javascript">
+$(".close").click(function(){
+	$('.card').animate({opacity:"0"},0);
+});
+</script>	
 
 <style>	
 body { 
@@ -24,7 +30,7 @@ body {
 
 .card { 
 	position:relative;
-  	top:100px;
+  	top:150px;
   	left:100px;
 	width:480px;
 	height:268px;
@@ -35,8 +41,8 @@ body {
 </head>
 
 <body>
-	
-  <div class="card"><img src="img/vvip.png"></div>
+<div class="card"><img src="img/vvip.png"></div>
+<div class="close">닫기누르면 이렇게</div>
 
 </body>
 </html>
