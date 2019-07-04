@@ -1,0 +1,877 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>뽕티비</title>
+<link rel="shortcut icon" href="https://pic.popkontv.com/images/aspw/favi/P-00046.ico">
+
+
+
+<!-- css -->
+<link rel="stylesheet" href="http://www.hotdogtv.co.kr/style/common/css/all.css?2019-07-04 오후 2:11:35">
+<link rel="stylesheet" type="text/css" href="http://www.hotdogtv.co.kr/style/type2/assets/css/content.css?2019-07-04 오후 2:11:35">
+<link rel="stylesheet" href="http://www.hotdogtv.co.kr/style/common/css/jquery.bxslider.css">
+<link rel="stylesheet" href="http://www.hotdogtv.co.kr/css/common/swiper.min.css">
+
+<!-- js -->
+<script src="/style/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugin/plugin.min.js"></script>
+<script src="/style/type2/assets/js/common.js"></script>
+<script type="text/javascript" src="/style/common/js/default.js?2019-07-04 오후 2:11:35"></script>
+<script src="/style/common/js/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="/js/plugin/swiper.min.js"></script>
+
+<style>
+/* 201902 설날 이벤트 팝업 typeA*/
+.pop-mask{z-index:9998;display:block;position:fixed;width:100%;height:100%;top:0;left:0;background-color:#000;opacity:0.5}
+.layerPopup.vvip{position:fixed;top:50%;left:50%;margin:-264px 0 0 -217px}
+.layerPopup.vvip button{border:0;outline:0;margin:0;padding:0;cursor:pointer}
+.layerPopup.vvip *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+.layerPopup-vvip{position:relative;width:434px;height:528px;margin:0 auto}
+.layerPopup-vvip .card_cover{position:absolute;bottom:0;left:0;z-index:100}
+.layerPopup-vvip .card{position:absolute;width:382px;height:285px;top:205px;left:27px;background:url(https://pic.popkontv.com/images/www/images/popkon/event/pc_201902_vvip_card.png) center /contain no-repeat;}
+.layerPopup-vvip .card p{font-size:15px;color:#2c2c2c;line-height:24px;letter-spacing:-.08em;text-align:center}
+.layerPopup-vvip .card p strong{color:#000}
+.layerPopup-vvip .card p strong span{color:#dd3518}
+.layerPopup-vvip .vvip_close{display:none;position:absolute;right:0;top:0;width:30px;height:30px;background:url(https://pic.popkontv.com/images/www/images/popkon/event/pc_201809_vvip_close.png) center /contain no-repeat;text-indent:-9999em}
+.layerPopup.vvip .pop_footer{margin-top:20px;text-align:center}
+.layerPopup.vvip .pop_footer input[type="checkbox"]{display:none}
+.layerPopup.vvip .pop_footer input[type="checkbox"] + label{font-size:15px;color:#fff;cursor:pointer}
+.layerPopup.vvip .pop_footer input[type="checkbox"] + label span{display:inline-block;vertical-align:middle;width:24px;height:24px;background-color:transparent;border:1px solid #fff;-webkit-border-radius:12px;-moz-border-radius:12px;border-radius:12px;position:relative;top:-2px;margin-right:10px}
+.layerPopup.vvip .pop_footer input[type="checkbox"]:checked + label span:after{display:block;width:16px;height:16px;background-color:#fff;border-radius:50%;position:absolute;top:3px;left:3px;content:''}
+
+.main_vip_pop{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:5000}
+.main_vip_pop .vip_card_wrap{display:table;width:100%;height:100%}
+.main_vip_pop .vip_card_wrap .vip_card{display:table-cell;vertical-align:middle;text-align:center;width:100%;height:100%}
+.main_vip_pop .vip_card_wrap .vip_card .card_box{display:inline-block;top:-100px;position:relative}
+.close_btn_set{text-align:right;height:26px;line-height:26px;color:#fff;font-size:0}
+.close_btn_set *{vertical-align:top;font-size:15px}
+.close_btn_set .bar{margin:0 5px}
+.close_btn_set button{height:26px;color:#fff;font-size:15px;margin:0;border:0;padding:0;background:transparent}
+.close_btn_set input[type="checkbox"]{display:none}
+.close_btn_set input[type="checkbox"] + label{font-size:15px;color:#fff;cursor:pointer;position:relative;display:inline-block;height:26px;line-height:26px}
+.close_btn_set input[type="checkbox"] + label:before{display:inline-block;vertical-align:middle;width:24px;height:24px;background-color:transparent;border:1px solid #fff;-webkit-border-radius:12px;-moz-border-radius:12px;border-radius:12px;position:relative;top:-2px;margin-right:10px;content:''}
+.close_btn_set input[type="checkbox"]:checked + label:after{display:block;width:16px;height:16px;background-color:#fff;border-radius:50%;position:absolute;top:5px;left:5px;content:''}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+	<!-- TOP / Menu 시작 -->
+    <header class="header">
+    <div class="inner">
+        <div class="gnb clfix">
+            <ul class="left">
+                <li><a href="/style/common/coin/popkon.asp">팝콘충전</a></li>
+                <li><a href="/style/common/item/item_fullView.asp">아이템구매</a></li>
+            </ul>
+            <ul class="right">
+
+                <!-- 비로그인 영역 시작 -->
+                <li class="gnb-login"><a href="/style/common/sign/login.asp">로그인</a></li>
+                <li class="gnb-join"><a href="/style/common/join/default.asp">회원가입</a></li>
+                <li class="gnb-find"><a href="/style/common/private/finding.asp">아이디/비번찾기</a></li>
+                <li><a href="/style/common/event/event_close_list.asp">이벤트</a></li>
+                <li><a href="/style/common/customer/customer_list.asp">고객센터</a></li>
+                <!-- 비로그인 영역 종료 //-->
+
+            </ul>
+        </div>
+        <div class="logo-area">
+            <h1 class="logo">
+                <a href="/" >
+                    <img src="https://pic.popkontv.com/images/aspw/P-00046/common/siteLogo_190.png" alt="logo">
+                </a>
+            </h1>
+            <div class="search">
+                <form id="mcSearchForm" name="mcSearchForm" action="/style/common/live/ranking_total.asp" method="post">
+                    <input type="hidden" id="searchType" name="searchType" value="0">
+                    <input type="hidden" id="rankCode" name="rankCode" value="4">
+                    <input type="text" name="searchStr" id="searchStr" class="form-search" placeholder="검색할 MC의 닉네임" maxlength="8">
+                    <button type="button" id="btnSearchMC" class="btn-search">검색</button>
+                </form>
+            </div>
+            <a href="/style/common/userGuide/download.asp" class="download-link">
+                PC/Mobile<br>프로그램 다운로드<div class="go">GO</div>
+            </a>
+        </div>
+        <div class="lnb">
+            <ul class="clfix">
+                <li><a href="/style/common/live/live.asp">Live</a></li>
+                <li><a href="/style/common/live/ranking_total.asp">Rank</a></li>
+                <li><a href="/style/common/live/ucc.asp">UCC</a></li>
+                <li><a href="/style/common/webtoon/webtoon.asp">웹툰</a></li>
+                <li><a href="/style/common/live/edu.asp">에듀</a></li>
+                <li><a href="/style/common/fortune/fortune.asp">운세</a></li>
+                <li><a href="/style/common/magazine/magazine.asp">Magazine</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#btnSearchMC').bind('click',function(evt){
+            evt.preventDefault();
+
+            if( $('#searchStr').val().length < 2 ){
+                alert('MC닉네임을 2~8자 이내로 입력하세요');
+                $('#searchStr').focus();
+            }else if( wordFilter($('#searchStr').val())){
+                $('#searchStr').val('');
+                $('#searchStr').focus();
+            }else{
+                $('#mcSearchForm').submit();
+            }
+        });
+
+        $('#searchStr').bind('keydown',function(evt){
+            var keyCode = evt.which;
+
+            if(keyCode==13){
+                evt.preventDefault();
+
+                if( $('#searchStr').val().length < 2 ){
+                    alert('MC닉네임을 2~8자 이내로 입력하세요');
+                    $('#searchStr').focus();
+                }else if( wordFilter($('#searchStr').val())){
+                    $('#searchStr').val('');
+                    $('#searchStr').focus();
+                }else{
+                    $('#mcSearchForm').submit();
+                }
+            }
+        });
+    });
+</script>
+
+	<!-- TOP / Menu 종료 //-->
+	<!-- 본문 시작 -->
+	<section class="content">
+
+	    <!-- s: 핫클립 -->
+	    
+				<div class="hot_clip_area">
+                    <div class="hot_clip_hd">
+                        <h3 class="hot_clip_title"><span>HOT</span> CLIP</h3>
+                        <div class="hot_dir_group">
+                            <div class="hot_prev"><a href="#">prev</a></div>
+                            <div class="hot_next"><a href="#">next</a></div>
+                        </div>
+                    </div>
+                    <div class="swiper-container hc_list">
+                        <ul class="swiper-wrapper hot_clip_list">
+                        	
+		            		<li class="swiper-slide hot_clip_item">
+                                <a href="/content/ucc/ucc_view.asp?grpcode=1&regcode=12612&cat=9&stype=0" class="item_inner">
+                                    <div class="item_figure" style="background-image:url('http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_CATE_VOD/group_1/cate_9/%EC%9D%B4%EC%B1%84%EC%8D%B8%EB%84%A4%EC%9D%BC%2Ejpg')"></div>
+                                    <p class="item_title">&#51060;&#52292;_EXID-&#50948;&#50500;&#47000; &#52964;&#48260;&#45828;&#49828;</p>
+                                </a>
+                            </li>
+	                        
+		            		<li class="swiper-slide hot_clip_item">
+                                <a href="/content/ucc/ucc_view.asp?grpcode=1&regcode=12605&cat=9&stype=0" class="item_inner">
+                                    <div class="item_figure" style="background-image:url('http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_CATE_VOD/group_1/cate_9/%EC%9D%B4%EC%B1%84%EC%9D%B4%EC%B1%84%EC%9D%B4%EC%B1%84%2Ejpg')"></div>
+                                    <p class="item_title">&#51060;&#52292;_&#12631;&#12636;&#12625;..</p>
+                                </a>
+                            </li>
+	                        
+		            		<li class="swiper-slide hot_clip_item">
+                                <a href="/content/ucc/ucc_view.asp?grpcode=1&regcode=12682&cat=9&stype=0" class="item_inner">
+                                    <div class="item_figure" style="background-image:url('http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_CATE_VOD/group_1/cate_9/%EC%9D%B4%EC%B1%84%EC%9C%B0%EC%A0%88%EB%AF%B8%2Ejpg')"></div>
+                                    <p class="item_title">&#51060;&#52292;_ &#50992;&#51208;&#48120; &#44277;&#44060;&#44256;&#48177; ! &#44032;&#49844;&#51060; &#45320;&#47924; &#51089;&#50500;&#49436; &#44256;&#48124;&#51077;&#45768;&#45796;</p>
+                                </a>
+                            </li>
+	                        
+		            		<li class="swiper-slide hot_clip_item">
+                                <a href="/content/ucc/ucc_view.asp?grpcode=1&regcode=12373&cat=9&stype=0" class="item_inner">
+                                    <div class="item_figure" style="background-image:url('http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_CATE_VOD/group_1/cate_9/02%5F%EC%A0%95%EC%84%A0%EC%97%AC%ED%96%89%2D%ED%8C%9D%EC%BD%98%2Ejpg')"></div>
+                                    <p class="item_title">&#45224;&#51088;&#52828;&#44396;&#50752; &#51221;&#49440;&#50668;&#54665;, &#48120;&#44397;&#50640;&#49436; &#50728; &#52828;&#44396;&#46020; &#54632;&#44760;!</p>
+                                </a>
+                            </li>
+	                        
+		            		<li class="swiper-slide hot_clip_item">
+                                <a href="/content/ucc/ucc_view.asp?grpcode=1&regcode=12379&cat=9&stype=0" class="item_inner">
+                                    <div class="item_figure" style="background-image:url('http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_CATE_VOD/group_1/cate_9/05%5F%EB%B4%89%EC%88%9C%EC%9D%B4%ED%99%94%EC%9E%A5%EB%B2%95%2Ejpg')"></div>
+                                    <p class="item_title">&#50773;&#52488;&#48372; &#50668;&#49888;&#44553;&#54868;&#51109;&#48277;</p>
+                                </a>
+                            </li>
+	                        
+		            		<li class="swiper-slide hot_clip_item">
+                                <a href="/content/ucc/ucc_view.asp?grpcode=1&regcode=12636&cat=9&stype=0" class="item_inner">
+                                    <div class="item_figure" style="background-image:url('http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_CATE_VOD/group_1/cate_9/%5B%ED%81%AC%EA%B8%B0%EB%B3%80%ED%99%98%5D%5B%ED%81%AC%EA%B8%B0%EB%B3%80%ED%99%98%5D%5B%ED%81%AC%EA%B8%B0%EB%B3%80%ED%99%98%5D%5B%ED%81%AC%EA%B8%B0%EB%B3%80%ED%99%98%5D5%2E%20%EB%B3%84%EB%B9%9B%20%EB%8B%AC%EB%B9%9B%2Epng')"></div>
+                                    <p class="item_title">&#54616;&#50672;_&#48324;&#48731;&#45804;&#48731; &#47532;&#50529;&#49496;</p>
+                                </a>
+                            </li>
+	                        
+		            		<li class="swiper-slide hot_clip_item">
+                                <a href="/content/ucc/ucc_view.asp?grpcode=1&regcode=12400&cat=9&stype=0" class="item_inner">
+                                    <div class="item_figure" style="background-image:url('http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_CATE_VOD/group_1/cate_9/11%5F%EB%B3%B4%EC%9C%A1%EC%9B%90%EC%98%81%EC%83%81%2Ejpg')"></div>
+                                    <p class="item_title">&#48372;&#50977;&#50896;&#50640;&#49436; &#50728; &#54200;&#51648;!! &#44536;&#47000;&#49436; &#52824;&#53416;&#51060;&#46993; &#54588;&#51088; &#44592;&#48512;&#54616;&#44256; &#50772;&#50612;&#50836;!!!</p>
+                                </a>
+                            </li>
+	                        
+		            		<li class="swiper-slide hot_clip_item">
+                                <a href="/content/ucc/ucc_view.asp?grpcode=1&regcode=12670&cat=9&stype=0" class="item_inner">
+                                    <div class="item_figure" style="background-image:url('http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_CATE_VOD/group_1/cate_9/%5B%ED%81%AC%EA%B8%B0%EB%B3%80%ED%99%98%5D%5B%ED%81%AC%EA%B8%B0%EB%B3%80%ED%99%98%5D%5B%ED%81%AC%EA%B8%B0%EB%B3%80%ED%99%98%5D%5B%ED%81%AC%EA%B8%B0%EB%B3%80%ED%99%98%5D10%2E%20%EC%88%A8%EA%B8%B8%20%EC%88%98%20%EC%97%86%EC%96%B4%EC%9A%94%2Epng')"></div>
+                                    <p class="item_title">&#54616;&#50672;_&#49704;&#44600; &#49688; &#50630;&#50612;&#50836;</p>
+                                </a>
+                            </li>
+	                        
+		            		<li class="swiper-slide hot_clip_item">
+                                <a href="/content/ucc/ucc_view.asp?grpcode=1&regcode=12430&cat=9&stype=0" class="item_inner">
+                                    <div class="item_figure" style="background-image:url('http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_CATE_VOD/group_1/cate_9/%EB%B3%B5%EB%B6%88%EB%B3%B5%ED%80%B4%EC%A6%88%EC%87%BC%2EPNG')"></div>
+                                    <p class="item_title">&#48373;&#48520;&#48373; 100&#47564;&#50896; &#53300;&#51592;&#49660;!</p>
+                                </a>
+                            </li>
+	                        
+		            		<li class="swiper-slide hot_clip_item">
+                                <a href="/content/ucc/ucc_view.asp?grpcode=1&regcode=12683&cat=9&stype=0" class="item_inner">
+                                    <div class="item_figure" style="background-image:url('http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_CATE_VOD/group_1/cate_9/%EC%8D%B8%EB%84%A4%EC%9D%BC%2E00%5F00%5F14%5F15%2EStill006%2Ejpg')"></div>
+                                    <p class="item_title">&#50696;&#48388;_&#45208;&#51032; &#50896;&#54589;! &#50724;&#48736;&#50521;~</p>
+                                </a>
+                            </li>
+	                        
+                        </ul>
+                    </div>
+                </div>
+
+        <script type="text/javascript">
+        /* 핫클립 영역 슬라이드 (swiper.js) */
+
+        $(function(){
+            // 로드되기전 레이아웃 마진값을 초기화
+        	$('.hot_clip_wrap .hc_list ul li').css('margin-left','0');
+        	// 슬라이드 이벤트
+            var hotClipSlide = new Swiper(".hc_list",{
+            	effect: 'slide',
+                initialSlide : 0,
+                centeredSlides: false,
+                slidesPerView: 5,
+                paginationClickable: true,
+                spaceBetween: 14,
+                centeredSlides: false,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                loop: true
+        	});
+            // direction controls event
+            $('.hot_dir_group .hot_next > a').click(function(){
+                hotClipSlide.slideNext();
+                return false;
+        	});
+            $('.hot_dir_group .hot_prev > a').click(function(){
+                hotClipSlide.slidePrev();
+                return false;
+            });
+        })
+
+        </script>
+        <!-- e: 핫클립 -->
+
+		<!-- 배너 / 실시간 LIVE랭킹 시작 -->
+		<article class="main-banner clfix">
+			<!-- 배너 시작 -->
+			<div class="slide left">
+				<ul class="bxslider">
+				
+                <li>
+                    <a href="http://handssam.co.kr/event/open_event/open_event.html" target="True"><img src="https://pic.popkontv.com/bAD/freeASP/201903/fn_20190314144051.jpg" alt="뽕티비 이벤트 배너 - 붙여핸싸움" style="width:750px;height:250px;"></a>
+                </li>
+
+                <li>
+                    <a href="http://dbdbdeep.com/site19/event/spolive/spolive.html" target="True"><img src="https://pic.popkontv.com/bAD/freeASP/201903/fn_20190322141822.jpg" alt="뽕티비 이벤트 배너 - 스포플레이" style="width:750px;height:250px;"></a>
+                </li>
+
+                <li>
+                    <a href="https://go.onelink.me/B7qd/c54a7de3" target="True"><img src="https://pic.popkontv.com/bAD/freeASP/201904/fn_20190404184949.jpg" alt="피버바스켓 ASP(보라~살구)" style="width:750px;height:250px;"></a>
+                </li>
+
+                <li>
+                    <a href="https://smartstore.naver.com/jslmall/category/ALL?cp=1" target="True"><img src="https://pic.popkontv.com/bAD/freeASP/201906/fn_20190605103457.jpg" alt="뽕/꾹티비 - 걸크러쉬" style="width:750px;height:250px;"></a>
+                </li>
+
+                <li>
+                    <a href="/style/common/event/common/201907Rank/" target="_self"><img src="https://pic.popkontv.com/bAD/freeASP/201907/fn_20190704112431.png" alt="[asp] 7월 블링블링 이벤트 " style="width:750px;height:250px;"></a>
+                </li>
+
+                <li>
+                    <a href="/style/common/event/common/201907Store/" target="_self"><img src="https://pic.popkontv.com/bAD/freeASP/201906/fn_20190624125320.png" alt="팝콘상회 7월 이벤트 - 너의 팬심을 보여줘! " style="width:750px;height:250px;"></a>
+                </li>
+
+                <li>
+                    <a href="/style/common/event/common/201906weekend/" target="_self"><img src="https://pic.popkontv.com/bAD/freeASP/201906/fn_20190610175701.jpg" alt="[6월]요트도 받고 휴가비도 받자 이벤트" style="width:750px;height:250px;"></a>
+                </li>
+
+                <li>
+                    <a href="/style/common/event/common/201906Rank/" target="_self"><img src="https://pic.popkontv.com/bAD/freeASP/201905/fn_20190528172028.png" alt="2019년 6월 이벤트 - 고급 핸드백이 어울리는 MC" style="width:750px;height:250px;"></a>
+                </li>
+
+                <li>
+                    <a href="http://ovaco.kr/" target="True"><img src="https://pic.popkontv.com/bAD/freeASP/201905/fn_20190531172330.jpg" alt="오바코 이벤트" style="width:750px;height:250px;"></a>
+                </li>
+
+                <li>
+                    <a href="/style/common/event/common/campaign/default.asp" target="_self"><img src="https://pic.popkontv.com/images/aspw/event/common/campaign/b_20180402.jpg" alt="CommonBanner" style="width:750px;height:250px;"></a>
+                </li>
+
+				</ul>
+			</div>
+			<!-- 배너 종료 //-->
+			<!-- 실시간 LIVE랭킹 시작 -->
+			<div class="ranking right">
+				<p class="title">실시간 LIVE랭킹</p>
+				<ul class="user">
+				
+                    <li>
+						<span class="num">1</span>
+						<a href="/ch/default.asp?mcid=alsl77&mcPartnerCode=P-00001">
+							<span class="thumb" style="background-image:url(https://pic.popkontv.com/profile_thumb/P-00001/a/al/alsl77_P-00001_20190624185808.png)"></span>
+							<span class="name">&#50694;&#51665;&#49548;&#45376;</span>
+						</a>
+					</li>
+
+                    <li>
+						<span class="num">2</span>
+						<a href="/ch/default.asp?mcid=dlfxordk&mcPartnerCode=P-00001">
+							<span class="thumb" style="background-image:url(https://pic.popkontv.com/profile_thumb/P-00001/d/dl/dlfxordk_P-00001_20160525113046.png)"></span>
+							<span class="name">&#47785;&#54252;&#51452;&#51652;&#47784;</span>
+						</a>
+					</li>
+
+                    <li>
+						<span class="num">3</span>
+						<a href="/ch/default.asp?mcid=chlrh4806&mcPartnerCode=P-00001">
+							<span class="thumb" style="background-image:url(https://pic.popkontv.com/profile_thumb/P-00001/c/ch/chlrh4806_P-00001_20190308134402.png)"></span>
+							<span class="name">&#9825;&#50648;&#47536;&#9825;</span>
+						</a>
+					</li>
+
+                    <li>
+						<span class="num">4</span>
+						<a href="/ch/default.asp?mcid=Happy0728&mcPartnerCode=P-00001">
+							<span class="thumb" style="background-image:url(https://pic.popkontv.com/profile_thumb/P-00001/H/Ha/happy0728_P-00001_20190403123338.png)"></span>
+							<span class="name">&#46608;&#50500;</span>
+						</a>
+					</li>
+
+                    <li>
+						<span class="num">5</span>
+						<a href="/ch/default.asp?mcid=gns501&mcPartnerCode=P-00001">
+							<span class="thumb" style="background-image:url(https://pic.popkontv.com/profile_thumb/P-00001/g/gn/gns501_P-00001_20171217224215.png)"></span>
+							<span class="name">&#50668;&#54252;</span>
+						</a>
+					</li>
+
+				</ul>
+			</div>
+			<!-- 실시간 LIVE랭킹 종료 //-->
+		</article>
+		<!-- 배너 / 실시간 LIVE랭킹 종료 //-->
+		<!-- 인기웹툰 / 실시간 핫이슈 시작 -->
+		<article class="main-best-list">
+			<!-- 인기웹툰 시작 -->
+			<div>
+				<ul class="clfix">
+					<li style="background-image:url(https://pic.popkontv.com/images/aspw/style/type2/bg_webtoon.png)">
+						<a href="/style/common/webtoon/webtoon.asp">
+							<p class="title">인기웹툰</p>
+							<p class="sub-txt">뽕티비에서 선보이는<br>유쾌하고 엽기적인 다양한 재미</p>
+							<a href="/style/common/webtoon/webtoon.asp" class="shortcut">바로가기</a>
+						</a>
+					</li>
+					
+                <li class="best-label" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/1/t1_3_4.jpg);">
+                    <a href="javascript:signAlert();">
+                        <div class="info">
+                            <p class="view">조회수 769</p>
+                            <p class="txt">4화 꿀쇼핑</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="best-label" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/9/t9_4_15.jpg);">
+                    <a href="javascript:signAlert();">
+                        <div class="info">
+                            <p class="view">조회수 1,753</p>
+                            <p class="txt">15화 분위기 있는 로모효과 내기</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="best-label" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/9/t9_4_10.jpg);">
+                    <a href="javascript:signAlert();">
+                        <div class="info">
+                            <p class="view">조회수 505</p>
+                            <p class="txt">10화 피 흘리는 문자 효과</p>
+                        </div>
+                    </a>
+                </li>
+
+				</ul>
+			</div>
+			<!-- 인기웹툰 종료 //-->
+			<!-- 실시간 핫이슈 시작 -->
+			<div>
+				<ul class="clfix">
+					<li style="background-image:url(https://pic.popkontv.com/images/aspw/style/type2/bg_hotissue.png)">
+						<a href="/style/common/live/ucc.asp">
+							<p class="title">실시간 핫이슈</p>
+							<p class="sub-txt">아직도 못봤어?<br>지금 가장 핫한 영상</p>
+							<a href="/style/common/live/ucc.asp" class="shortcut">바로가기</a>
+						</a>
+					</li>
+					
+                <li class="best-label" style="background-image:url(https://i.ytimg.com/vi/yJuMy0nELZ4/maxresdefault.jpg)">
+					<a href="/style/common/live/ucc_view.asp?grpcode=6&regcode=5815&cat=0">
+						<div class="info">
+							<p class="view">조회수 74</p>
+							<p class="txt">수어사이드 스쿼드 한글자막 예고편
+</p>
+						</div>
+					</a>
+				</li>
+
+                <li class="best-label" style="background-image:url(https://i.ytimg.com/vi/icpKfgQJedc/maxresdefault.jpg)">
+					<a href="/style/common/live/ucc_view.asp?grpcode=6&regcode=8405&cat=0">
+						<div class="info">
+							<p class="view">조회수 99</p>
+							<p class="txt">팝핀 현준의 역대급 시구
+</p>
+						</div>
+					</a>
+				</li>
+
+                <li class="best-label" style="background-image:url(https://i.ytimg.com/vi/pORTzPelDnk/hqdefault.jpg)">
+					<a href="/style/common/live/ucc_view.asp?grpcode=6&regcode=5647&cat=0">
+						<div class="info">
+							<p class="view">조회수 93</p>
+							<p class="txt">신개념 똥침..?
+</p>
+						</div>
+					</a>
+				</li>
+
+				</ul>
+			</div>
+			<!-- 실시간 핫이슈 종료 //-->
+		</article>
+		<!-- 인기웹툰 / 실시간 핫이슈 종료 //-->
+		<!-- 에듀케이션 시작 -->
+		<article class="education">
+			<div>
+				<p class="title">에듀케이션</p>
+				<ul class="main-list-tab clfix">
+					<li class="on" data-tab="tab-1">요가</li>
+					<li data-tab="tab-2">잉그리스타</li>
+					<li data-tab="tab-3">힐링상담교육</li>
+					<li data-tab="tab-4">유아영어</li>
+				</ul>
+			</div>
+			<!-- 요가 시작 -->
+			<div id="tab-1" class="tab-content" style="display:block">
+				<ul class="clfix">
+				
+                <li>
+                    <a href="javascript:signAlert();" class="thumb" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/31/t31_11_41.jpg)"></a>
+                    <div class="info">
+                        <a href="javascript:signAlert();" class="content-title">[41강] 스트레스로 뭉친근육을 풀어주는 요가
+</a>
+                        <p class="view">조회수 1,522</p>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="javascript:signAlert();" class="thumb" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/31/t31_11_49.jpg)"></a>
+                    <div class="info">
+                        <a href="javascript:signAlert();" class="content-title">[49강] 파트너와 함께하는 하복근 운동
+</a>
+                        <p class="view">조회수 1,020</p>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="javascript:signAlert();" class="thumb" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/31/t31_11_42.jpg)"></a>
+                    <div class="info">
+                        <a href="javascript:signAlert();" class="content-title">[42강] 자세를 교정에 도움을 주는 동작
+</a>
+                        <p class="view">조회수 503</p>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="javascript:signAlert();" class="thumb" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/31/t31_11_44.jpg)"></a>
+                    <div class="info">
+                        <a href="javascript:signAlert();" class="content-title">[44강] 탄탄한 하체만들기 동작
+</a>
+                        <p class="view">조회수 469</p>
+                    </div>
+                </li>
+
+				</ul>
+			</div>
+			<!-- 요가 종료 //-->
+			<!-- 잉그리스타 시작 -->
+			<div id="tab-2" class="tab-content">
+				<ul class="clfix">
+				
+                <li>
+                    <a href="javascript:signAlert();" class="thumb" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/10/t10_8_2.jpg)"></a>
+                    <div class="info">
+                        <a href="javascript:signAlert();" class="content-title">[2강] 대명사</a>
+                        <p class="view">조회수 614</p>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="javascript:signAlert();" class="thumb" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/11/t11_8_15.jpg)"></a>
+                    <div class="info">
+                        <a href="javascript:signAlert();" class="content-title">[15강] 미용실에서</a>
+                        <p class="view">조회수 374</p>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="javascript:signAlert();" class="thumb" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/12/t12_8_27.jpg)"></a>
+                    <div class="info">
+                        <a href="javascript:signAlert();" class="content-title">[27강] 답변 (Answer)</a>
+                        <p class="view">조회수 348</p>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="javascript:signAlert();" class="thumb" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/10/t10_8_38.jpg)"></a>
+                    <div class="info">
+                        <a href="javascript:signAlert();" class="content-title">[38강] ...use...</a>
+                        <p class="view">조회수 224</p>
+                    </div>
+                </li>
+
+				</ul>
+			</div>
+			<!-- 잉그리스타 종료 //-->
+			<!-- 힐링상담교육 시작 -->
+			<div id="tab-3" class="tab-content">
+				<ul class="clfix">
+				
+                <li>
+                    <a href="javascript:signAlert();" class="thumb" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/13/t13_7_2.jpg)"></a>
+                    <div class="info">
+                        <a href="javascript:signAlert();" class="content-title">마음에 말걸기</a>
+                        <p class="view">조회수 27</p>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="javascript:signAlert();" class="thumb" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/13/t13_7_3.jpg)"></a>
+                    <div class="info">
+                        <a href="javascript:signAlert();" class="content-title">두뇌이야기</a>
+                        <p class="view">조회수 27</p>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="javascript:signAlert();" class="thumb" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/13/t13_7_7.jpg)"></a>
+                    <div class="info">
+                        <a href="javascript:signAlert();" class="content-title">창의경영시대의 소통</a>
+                        <p class="view">조회수 27</p>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="javascript:signAlert();" class="thumb" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/13/t13_7_1.jpg)"></a>
+                    <div class="info">
+                        <a href="javascript:signAlert();" class="content-title">문학으로 배우는 인생</a>
+                        <p class="view">조회수 28</p>
+                    </div>
+                </li>
+
+				</ul>
+			</div>
+			<!-- 힐링상담교육 종료 //-->
+			<!-- 유아영어 시작 -->
+			<div id="tab-4" class="tab-content">
+				<ul class="clfix">
+				
+                <li>
+                    <a href="javascript:signAlert();" class="thumb" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/23/t23_9_1.jpg)"></a>
+                    <div class="info">
+                        <a href="javascript:signAlert();" class="content-title">1강 금도끼 은도끼</a>
+                        <p class="view">조회수 22</p>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="javascript:signAlert();" class="thumb" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/21/t21_9_3.jpg)"></a>
+                    <div class="info">
+                        <a href="javascript:signAlert();" class="content-title">Chapter 3. 말썽꾸러기 리틀 사우러스</a>
+                        <p class="view">조회수 11</p>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="javascript:signAlert();" class="thumb" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/23/t23_9_6.jpg)"></a>
+                    <div class="info">
+                        <a href="javascript:signAlert();" class="content-title">6강 구두쇠</a>
+                        <p class="view">조회수 9</p>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="javascript:signAlert();" class="thumb" style="background-image:url(http://vod2.popkontv.hscdn.com/CAST_VOD/POPCAST_VOD/22/t22_9_13.jpg)"></a>
+                    <div class="info">
+                        <a href="javascript:signAlert();" class="content-title">13강 사진찍기,술에취하면,기차</a>
+                        <p class="view">조회수 5</p>
+                    </div>
+                </li>
+
+				</ul>
+			</div>
+			<!-- 유아영어 종료 //-->
+		</article>
+		<!-- 에듀케이션 종료 //-->
+	</section>
+	<!-- 본문 종료 //-->
+	<!-- 공지사항 / footer 시작 -->
+    
+<footer class="footer mT30">
+    <div class="notice">
+        <div class="inner">
+            <div class="notice-view clfix">
+                <a href="/style/common/customer/customer_list.asp" class="title">공지사항</a>
+                <ul class="view-content">
+                
+                <li><a href="/style/common/customer/customer_view.asp?idx=3338" class="notice-summary">[&#51060;&#48292;&#53944;] &#9733;7&#50900; &#48660;&#47553;&#48660;&#47553; &#54889;&#44552;MC&#45716; &#45572;&#44396;?&#9733;...</a></li>
+
+                <li><a href="/style/common/customer/customer_view.asp?idx=3332" class="notice-summary">[&#51060;&#48292;&#53944;] &#9733;&#45320;&#51032; &#54060;&#49900;&#51012; &#48372;&#50668;&#51480;&#9733; </a></li>
+
+                <li><a href="/style/common/customer/customer_view.asp?idx=3328" class="notice-summary">[&#44277;&#51648;] 6&#50900; &#49436;&#48708;&#49828;&#51216;&#44160; &#50504;&#45236;</a></li>
+
+                <li><a href="/style/common/customer/customer_view.asp?idx=3317" class="notice-summary">[&#51060;&#48292;&#53944;]&#9733; 6&#50900; &#51452;&#47568; &#47021;&#53433; &#51060;&#48292;&#53944; &#9733;</a></li>
+
+                <li><a href="/style/common/customer/customer_view.asp?idx=3240" class="notice-summary">[&#51060;&#48292;&#53944;]&#9733;&#44256;&#44553; &#54648;&#46300;&#48177;&#51060; &#50612;&#50872;&#47532;&#45716; &#47749;&#54408;MC&#45716;?...</a></li>
+
+                <li><a href="/style/common/customer/customer_view.asp?idx=3227" class="notice-summary">[&#51060;&#48292;&#53944;]&#9733;5&#50900; &#49548;&#54869;&#54665; &#48169;&#49569;&#51088; &#51060;&#48292;&#53944;&#9733; </a></li>
+
+                <li><a href="/style/common/customer/customer_view.asp?idx=3179" class="notice-summary">[&#51060;&#48292;&#53944;]&#9733;&#44396;&#46160;&#51032; &#51452;&#51064;&#44277;&#51012; &#52286;&#50500;&#46972;!&#9733;[&#51060;&#48292;&#53944; ...</a></li>
+
+                <li><a href="/style/common/customer/customer_view.asp?idx=3131" class="notice-summary">[&#51060;&#48292;&#53944;]&#9733;4&#50900; &#47085;&#49492;&#47532;&#54045;&#53080;&#44396;&#46160; &#44992;&#53440;&#51076;&#51060;&#48292;&#53944;&#9733; ...</a></li>
+
+                <li><a href="/style/common/customer/customer_view.asp?idx=3108" class="notice-summary">[&#44277;&#51648;&#49324;&#54637;] &#51221;&#44592;&#51216;&#44160; &#51068;&#51221; &#50504;&#45236; &#44277;&#51648;(4/29...</a></li>
+
+                <li><a href="/style/common/customer/customer_view.asp?idx=3023" class="notice-summary">[&#44277;&#51648;] PC &#50612;&#54540;&#47532;&#52992;&#51060;&#49496; &#49884;&#52397;&#54616;&#44592; &#54868;&#47732;&#50724;&#47448;</a></li>
+
+                </ul>
+                <a href="/style/common/customer/customer_list.asp" class="more">+더보기</a>
+            </div>
+        </div>
+    </div>
+    <div class="all-service">
+        <div class="inner clfix">
+            <div class="col">
+                <h3 class="title"><strong>Live</strong></h3>
+                <ul class="menu-list">
+                    <li><a href="/style/common/live/ranking_total.asp">인기순위</a></li>
+                    <li><a href="/style/common/live/ranking_live.asp">실시간순위</a></li>
+                    <li><a href="/style/common/coin/popkon.asp">팝콘구매</a></li>
+                    <li><a href="/style/common/item/item_fullView.asp">아이템</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3 class="title"><strong>UCC</strong></h3>
+                <ul class="menu-list">
+                    <li><a href="/style/common/live/ucc.asp?catCode=1">실시간이슈 UCC</a></li>
+                    <!--li><a href="/style/common/live/ucc.asp?catCode=2">유머 UCC</a></li//-->
+                </ul>
+            </div>
+            <div class="col">
+                <h3 class="title"><strong>웹툰</strong></h3>
+                <ul class="menu-list">
+                    <li><a href="/style/common/webtoon/webtoon.asp?catCode=3">코믹 웹툰</a></li>
+                    <li><a href="/style/common/webtoon/webtoon.asp?catCode=4">정보 웹툰</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3 class="title"><strong>에듀</strong></h3>
+                <ul class="menu-list">
+                    <li><a href="/style/common/live/edu.asp?catCode=19">영역별영어</a></li>
+                    <li><a href="/style/common/live/edu.asp?catCode=20">계통수학</a></li>
+                    <li><a href="/style/common/live/edu.asp?catCode=8">잉그리스타</a></li>
+                    <li><a href="/style/common/live/edu.asp?catCode=7">힐링 상담교육</a></li>
+                    <li><a href="/style/common/live/edu.asp?catCode=9">유아영어</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3 class="title"><strong>다운로드/이용가이드</strong></h3>
+                <ul class="menu-list">
+                    <li><a href="/style/common/userGuide/virtualCam.asp">MagicCam가이드</a></li>
+                    <li><a href="/style/common/userGuide/pc_guide.asp">PC용 방송가이드</a></li>
+                    <li><a href="/style/common/userGuide/mobile_guide.asp">모바일APP 방송가이드</a></li>
+                    <li><a href="http://down.popcast.co.kr/pc/bbongTV.air">응용프로그램 다운로드</a></li>
+                </ul>
+            </div>
+
+            <div class="btn-shortcuts">
+                <a href="javascript:signAlert();" class="report"><span>장애 및<br>버그신고</span></a>
+                <a href="/style/common/customer/customer_list.asp" class="customer"><span>고객센터</span></a>
+                <a href="/style/common/userGuide/solution.asp" class="popcast"><span>POPCAST</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="fnb">
+        <div class="inner clfix">
+            <ul class="nav-list left">
+                <li><a href="/style/common/policy/serviceUse.asp">이용약관</a></li>
+                <li><a href="/style/common/policy/privacy.asp">개인정보처리방침</a></li>
+                <li><a href="/style/common/policy/youthpolicy.asp">청소년보호정책</a></li>
+                <li><a href="/style/common/policy/watch.asp">시청기준안내</a></li>
+                <li><a href="/style/common/policy/broadcasting.asp">방송기준안내</a></li>
+            </ul>
+            <ul class="nav-list right">
+                <li><a href="/style/common/customer/customer_list.asp">고객센터</a></li>
+                <li><a href="/style/common/userGuide/virtualCam.asp">다운로드/이용가이드</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="inner clfix">
+            <a href="/" class="logo">
+                <img src="https://pic.popkontv.com/images/aspw/P-00046/common/siteLogo_190.png" alt="logo">
+            </a>
+            <div class="txt">
+                주식회사 마케팅이즈<br>
+                사업자등록번호 206-86-70618 <a href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=2068670618" target="_blank" class="ftc_link">사업자 정보확인</a> | 통신판매업신고번호 제 2019-서울성동-143호 | 대표이사 김정환 | 서울특별시 성동구 성수일로10길 26, 1501호, 1502호, 1503호(성수동2가, 하우스디 세종타워) l 고객센터 : (주간)02-6104-5828 (야간)070-4827-0145 l 무통장입금문의 : 070-5129-5688 l 개인정보보호책임자 : 권순민 l 호스팅서비스 사업자 : 효성ITX<br>
+                Copyright ⓒmarketing-is. All Rights reserved. ㅣ e-mail : mabawo@nate.com
+            </div>
+        </div>
+    </div>
+    <!--
+    <div class="copyright">
+        <div class="inner clfix">
+            <a href="#" class="logo"></a>
+            <div class="txt">
+                THE E&M 대표: 양성휘<br>
+                사업자번호: 603-81-50424    |   서울특별시 금천구 디지털로 9길 68, 9층 (가산동, 대륭포스트타워5차)<br>
+                Copyright ⓒ THE E&M. All rights reserved.
+            </div>
+        </div>
+    </div>
+    //-->
+</footer>
+
+<script language="JavaScript">
+// 사업자등록번호 조회
+function companyNumOpen(companyNum) {
+	if (companyNum != '') {
+		var url =
+		"http://www.ftc.go.kr/bizCommPop.do?wrkr_no="+companyNum;
+		window.open(url, "bizCommPop", "width=750, height=700;");
+	} else {
+		alert('사업자 정보가 확인되지 않습니다.');
+	}
+}
+</script>
+
+
+    <!-- 공지사항 / footer 종료 //-->
+</div>
+
+
+<!-- s: 뽕TV 팝업 -->
+<div id="bbongTvPop" class="pop_wrapper pop_st_today pop_st_bd">
+    <div class="pop_common">
+        <div class="pop_inner">
+            <!-- 팝업 머릿글 / 제목 -->
+            <div class="pop_header">
+                <h2 class="title" style="text-align:center">공정거래위원회로부터<br>시정명령을 받은 사실의 공표</h2>
+            </div>
+            <div class="pop_container">
+                <div class="pop_content">
+                    <p class="txt" style="text-align:center">
+                        저희 <strong>주식회사 마케팅이즈</strong>는 당사가 운영하는<br>
+                        사이버몰에서 아래와 같은 행위를 함으로써<br>
+                        <strong>전자상거래 등에서의 소비자 보호에 관한 법률<br>
+                        (이하'법'이라함)을 위반</strong>하였다는 이유로<br>
+                        <strong>공정거래위원회</strong>로부터 <strong>시정명령</strong>을 받았습니다.<br><br>
+                        - 아  래 -<br><br>
+                        당사가 운영하는 <strong>사이버몰'뽕티비'</strong>에서 '풀방입장권'<br>
+                        등 9종의 아이템을 판매하면서 일부 아이템의 경우<br>
+                        소비자의 사용 등 법 제17조 제2항의 청약철회<br>
+                        제한 사유가 발생하지 않는 경우 청약철회가<br>
+                        가능하였음에도 불구하고 청약철회가불가능하다고<br>
+                        표시하여 소비자의 청약철회를 방해한 행위<br><br>
+                        2019년 04월 15일<br>
+                        <strong>주식회사 마케팅이즈<br>
+                        대표이사 김정환</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="pop_close_group">
+                <button onclick="popOff($('#bbongTvPop'));" class="pm_close">닫기 X</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- e: 뽕TV 팝업 -->
+<script type="text/javascript">
+	function getTimeStamp() {
+		var d = new Date();
+
+		var s =
+		leadingZeros(d.getFullYear(), 4) + '-' +
+		leadingZeros(d.getMonth() + 1, 2) + '-' +
+		leadingZeros(d.getDate(), 2);
+
+		return s;
+	}
+
+	function leadingZeros(n, digits) {
+		var zero = '';
+		n = n.toString();
+
+		if (n.length < digits) {
+			for (i = 0; i < digits - n.length; i++)
+			zero += '0';
+		}
+
+		return zero + n;
+	}
+
+	function popOn(target) {// 팝업on
+	    var win = $(window);
+	    var body = $('body');
+	    var docuHeight = win.height();
+	    $('html,body').css({
+	        height : docuHeight,
+	        overflow : 'hidden',
+	    });
+	    target.fadeIn(300);
+	}
+
+	function popOff(target) {//팝업off
+	    $('html,body').css({
+	        height : 'auto',
+	        overflow : 'visible',
+	    });
+	    target.fadeOut(200);
+	}
+
+	$(function() {
+		if (getTimeStamp() < '2019-04-27') {
+			popOn($('#bbongTvPop'));
+		}
+	});
+</script>
+<!-- e: 뽕TV 팝업 -->
+
+
+<!-- s: 메인 vip 팝업 -->
+
+<!-- /e: 메인 vip 팝업 -->
+
+</body>
+</html>
