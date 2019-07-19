@@ -5,10 +5,10 @@
 <title>팝콘이벤트 애니메이션</title>
 <script type="text/javascript" src="img/jquery-2.1.0.min.js" ></script>
 <script type="text/javascript">
-$(".coin").ready(function(){
-  $('.coin').animate({
-	  top:450,
-	  top:390
+$(".bear").ready(function(){
+  $('.bear').animate({
+	  right:450,
+	  right:390
   },1000);
 });
 </script>
@@ -16,17 +16,17 @@ $(".coin").ready(function(){
 <style>
 .back_stage {
 background: url('img/bg_back.png') left center;
-background-size: auto 1018px;
+background-size: 1055px 1018px;
 }
 	
 .front {
 position:absolute;
 z-index:10
-background: url('img/bg_front.png') left center;
-background-size: auto 1018px;
+background: url('img/bg_front.png') top:556px center;
+background-size: 1055px 551px;
 }
 	
-.img{
+.bear{
 position:absolute;
 z-index:5
 top:450px;
@@ -44,7 +44,7 @@ background: url('img/img_bear.png') left center;
 <body>
 <div class="back_stage">
 	<div class="front"></div>
-	<div class="img"></div>
+	<div class="bear"></div>
 </div>
 </body>
 </html>
