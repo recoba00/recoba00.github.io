@@ -3,48 +3,78 @@
 <head>
 <meta charset="utf-8">
 <title>팝콘이벤트 애니메이션</title>
-<script type="text/javascript" src="img/jquery-2.1.0.min.js" ></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
 <script type="text/javascript">
 $(".bear").ready(function(){
   $('.bear').animate({
-	  right:450,
-	  right:390
-  },1000);
+	  left:710,
+	  left:420
+  },2000);
 });
+
 </script>
 	
 <style>
+body{
+margin:0px;
+}
+
 .back_stage {
-background: url('img/bg_back.png') left center;
-background-size: 1055px 1018px;
+width: 1055px;
+height: 1018px;
+background-image: url("img/bg_back.png");
+
 }
 	
 .front {
 position:absolute;
-z-index:10
-background: url('img/bg_front.png') top:556px center;
-background-size: 1055px 551px;
+top:555px;
+z-index:2
+
 }
 	
 .bear{
-position:absolute;
-z-index:5
+position:relative;
 top:583px;
-left:430px;
+left:710px;
+z-index:1
 width: 342px;
 height: 383px;
-margin: 0;
-background: url('img/img_bear.png') left center;
-  
+background: url('img/img_bear.png');
+background-repeat:no-repeat;
+animation: bear 0.5s linear 1s infinite alternate;
 }
-	
+
+@keyframes bear {
+0%   {opacity: 1.0; top:583px;}
+100% {opacity: 1.0; top:577px;}
+}
+
+.money{
+position:relative;
+top:150px;
+left:200px;
+z-index:2;
+width: 317px;
+height: 157px;
+background: url('img/img_txt.png');
+background-repeat:no-repeat;
+animation: crescendo 0.8s alternate infinite ease-in;
+}
+
+@keyframes crescendo {
+  0%   {transform: scale(.8);}
+  100% {transform: scale(1);}
+}
+
 </style>	
 </head>
 
 <body>
 <div class="back_stage">
-	<div class="front"></div>
-	<div class="bear"></div>
+<div class="front"><img src="img/bg_front.png"></div>
+<div class="bear"></div>
+<div class="money"></div>
 </div>
 </body>
 </html>
